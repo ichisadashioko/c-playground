@@ -13,6 +13,9 @@ int main() {
   STRUCT_WITH_POINTER_A x;
 
   for (unsigned int i = 0; i < numIterations; i++) {
+    free(x.IntArray);
+    free(x.CharArray);
+
     x.IntArray = (int*)malloc(sizeof(int) * numElements);
     x.CharArray = (char*)malloc(sizeof(char) * numElements);
   }
