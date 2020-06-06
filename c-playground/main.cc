@@ -17,14 +17,17 @@ int main() {
 
   for (unsigned int i = 0; i < numIterations; i++) {
     delete[] x;
-    x = (STRUCT_WITH_POINTER_A*)malloc(sizeof(STRUCT_WITH_POINTER_A));
+    x = new STRUCT_WITH_POINTER_A[1];
 
-    lastIntArray = (int*)malloc(sizeof(int) * numElements);
+    lastIntArray = new int[numElements];
     x[0].IntArray = lastIntArray;
 
-    lastCharArray = (char*)malloc(sizeof(char) * numElements);
+    lastCharArray = new char[numElements];
     x[0].CharArray = lastCharArray;
   }
+
+  std::cout << "lastIntArray size: " << sizeof(lastIntArray) << std::endl;
+  std::cout << "lastCharArray size: " << sizeof(lastCharArray) << std::endl;
 
   return 0;
 }
