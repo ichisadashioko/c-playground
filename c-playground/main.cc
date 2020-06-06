@@ -13,6 +13,11 @@ int main() {
   STRUCT_WITH_POINTER_A* x = NULL;
 
   for (unsigned int i = 0; i < numIterations; i++) {
+    if (x != NULL) {
+      free(x[0].CharArray);
+      free(x[0].IntArray);
+    }
+
     free(x);
     x = (STRUCT_WITH_POINTER_A*)malloc(sizeof(STRUCT_WITH_POINTER_A));
 
