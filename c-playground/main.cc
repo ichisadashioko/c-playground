@@ -10,14 +10,14 @@ struct STRUCT_WITH_POINTER_A {
 int main() {
   unsigned int numElements = 10000;
   unsigned int numIterations = 32000;
-  STRUCT_WITH_POINTER_A x;
+  STRUCT_WITH_POINTER_A* x = NULL;
 
   for (unsigned int i = 0; i < numIterations; i++) {
-    free(x.IntArray);
-    free(x.CharArray);
+    free(x);
+    x = (STRUCT_WITH_POINTER_A*)malloc(sizeof(STRUCT_WITH_POINTER_A));
 
-    x.IntArray = (int*)malloc(sizeof(int) * numElements);
-    x.CharArray = (char*)malloc(sizeof(char) * numElements);
+    x[0].IntArray = (int*)malloc(sizeof(int) * numElements);
+    x[0].CharArray = (char*)malloc(sizeof(char) * numElements);
   }
 
   return 0;
